@@ -28,27 +28,28 @@ class ShoppingCart {
     }
 }
 
-class ECommerce {
+class ECommerceSystem {
     List<Product> products = new ArrayList<>();
     ShoppingCart shoppingCart = new ShoppingCart();
 
-    public ECommerce() {
-        products.add(new Product("Tshirt", 199.99));
-        products.add(new Product("Laptop", 29999.99));
-        products.add(new Product("SunGlass",499.99));
-        products.add(new Product("HandBag", 29999.99));
-        products.add(new Product("Smartphone",8999.99));
-        products.add(new Product("Watch", 569.99));
-        products.add(new Product("HeadPhone", 99.99));
-        products.add(new Product("Bracelet", 100.99));
-        products.add(new Product("Wallet",99.99));
+    public ECommerceSystem() {
+        // Sample products
+        products.add(new Product("TShirt", 199.99));
+        products.add(new Product("Laptop", 11999.99));
+        products.add(new Product("wallet", 199.99));
+        products.add(new Product("Smartphone", 4999.99));
+        products.add(new Product("Headphones", 99.99));
+        products.add(new Product("Watch", 299.99));
+        products.add(new Product("Handbag", 199.99));
+        products.add(new Product("Bracelet", 99.99));
+        products.add(new Product("pant", 199.99));
     }
 
     public void displayProducts() {
         System.out.println("Available Products:");
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            System.out.println((i + 1) + ". " + product.name + " - $" + product.price);
+            System.out.println((i + 1) + ". " + product.name +  product.price);
         }
         System.out.println();
     }
@@ -66,9 +67,9 @@ class ECommerce {
     public void displayCart() {
         System.out.println("Shopping Cart:");
         for (Product item : shoppingCart.items) {
-            System.out.println("- " + item.name + " - $" + item.price);
+            System.out.println("- " + item.name  + item.price);
         }
-        System.out.println("Total: $" + shoppingCart.calculateTotal() + "\n");
+        System.out.println("Total:  + shoppingCart.calculateTotal() + "\n");
     }
 
     public void checkout() {
@@ -77,11 +78,11 @@ class ECommerce {
     }
 
     public static void main(String[] args) {
-        ECommerce ecommerce = new ECommerce();
+        ECommerceSystem ecommerceSystem = new ECommerceSystem();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("E-Commerce");
+            System.out.println("E-Commerce System");
             System.out.println("1. Display Products");
             System.out.println("2. Add to Cart");
             System.out.println("3. View Cart");
@@ -93,18 +94,18 @@ class ECommerce {
 
             switch (choice) {
                 case 1:
-                    ecommerce.displayProducts();
+                    ecommerceSystem.displayProducts();
                     break;
                 case 2:
                     System.out.print("Enter the product index to add to the cart: ");
                     int productIndex = scanner.nextInt();
-                    ecommerce.addToCart(productIndex);
+                    ecommerceSystem.addToCart(productIndex);
                     break;
                 case 3:
-                    ecommerce.displayCart();
+                    ecommerceSystem.displayCart();
                     break;
                 case 4:
-                    ecommerce.checkout();
+                    ecommerceSystem.checkout();
                     break;
                 case 5:
                     System.out.println("Exiting the system. Goodbye!");
@@ -115,3 +116,5 @@ class ECommerce {
         }
     }
 }
+
+ 
